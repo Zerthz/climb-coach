@@ -6,5 +6,13 @@
     {
         "id": 2,
         "quote": "Hoppa med höger vänster arm."
+    }, 
+    {
+        "id": 3,
+        "quote": "Håll fast dig nästa gång"
+    },
+    {
+        "id": 4,
+        "quote": "Du hinner!"
     }
 ]

@@ -17,7 +17,7 @@
 
 
 <script>
-    import quotes from '../data/quotes'
+    import quotes from '../data/quotes.json'
 
     export default{
         data() {
