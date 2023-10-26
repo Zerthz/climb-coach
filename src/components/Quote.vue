@@ -6,7 +6,11 @@
         <div class="buttons">
             <button class="btn-secondary" @click="newQuote">Coach Me</button>
             <button class="btn-secondary" @click="copyToClipboard">Copy To Clipboard</button>
+            
         </div>
+        <Transition name="fade">
+            <p v-show="copied">Copied to clipboard</p>
+        </Transition>
     </div>
 </template>
 
@@ -20,10 +24,15 @@
             return{
                 quotes,
                 text: '',
-                usedQuotes: []
+                usedQuotes: [],
+                copied: false
             }
         },
         methods:{
+            async remove(){
+                await setTimeout(() => this.copied = false, 2000);
+                
+            },
             newQuote(){
                 let arr = this.quotes;
                 if(quotes.length === 0){
@@ -42,6 +51,9 @@
                 try{
                     let textToCopy = '🧗\"' +  this.text + '\" -Klättercoachen 2023🧗'
                     await navigator.clipboard.writeText(textToCopy);
+                    this.copied= true;
+                    // setTimeout(this.copied = false, 200000)
+                    await this.remove()
                     console.log('copied to clipboard');
                 }
                 catch(err){
@@ -80,6 +92,30 @@
     .buttons{
         display: flex;
         gap: 2rem;
+    }
+
+    .fade-enter-active{
+        animation: fade-in 4s;
+    }
+    .fade-leave-active {
+        display: none;
+    }
+
+    @keyframes fade-in{
+        0%{
+            opacity: 0;
+        }
+        25%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+    opacity: 0;
     }
 
     @media (min-width: 640px) {

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import CopyToClipboard from './CopyToClipboard.vue';
 import Quote from './Quote.vue';
 
 export default {
