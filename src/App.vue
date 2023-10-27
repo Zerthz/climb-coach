@@ -14,7 +14,6 @@ import QuoteWrapper from './components/QuoteWrapper.vue';
     display: grid;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     height: 100vh;
   }
